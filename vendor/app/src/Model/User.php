@@ -96,12 +96,14 @@ class User extends Model {
                 header("Location: /admin/login");
             } else {
                 header("Location: /login");
-            }
+            }            
+           
            exit;
 
         }
     }
 
+    //Encerra sessão do usuário
     public static function logout()
     {
         
@@ -109,7 +111,7 @@ class User extends Model {
 
     }
 
-    
+    //Lista todos os usuários
     public static function listAll()
     {
         $sql = new Sql();
@@ -119,11 +121,31 @@ class User extends Model {
         return $result;
       }
 
+    //Cadastra novo usuário
     public function save()
     {
-        
+        $sql = new Sql();
+
+        $results = $sql->select("INSERT INTO tb_user(name,password,admin) VALUES(:name, :password, :admin)",
+        array(
+            ":name"=>$this->getname(), 
+            ":password"=>User::getPasswordHash($this->getpassword()),
+            ":admin"=>$this->getadmin()
+        ));
+
+        //var_dump($results);
+        //$this->setData($results[0]);
     }
-    
+
+    public static function getPasswordHash($password)
+    {
+
+        return password_hash($password, PASSWORD_DEFAULT, [
+            'cost'=>12
+        ]);
+
+    }
+
 }
 
 ?>
