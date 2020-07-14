@@ -40,9 +40,6 @@ $app->post('/admin/users/create', function(){
     //Se o campo "admin" for vazio é colocado = 0
     $_POST["admin"] = (isset($_POST["admin"]))?1:0;
 
-    //Cripitografia hash da senha cadastrada
-    $_POST['password'] = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
     $user->setData($_POST); 
 
     $user->save();
@@ -77,8 +74,6 @@ $app->post("/admin/users/:id", function($id) {
 	$user = new User();
 	
     $_POST["admin"] = (isset($_POST["admin"]))?1:0;
-    
-    $_POST['password'] = password_hash($_POST["password"], PASSWORD_DEFAULT);
     
     $user->get((int)$id);  
     
