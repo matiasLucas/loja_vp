@@ -41,11 +41,7 @@ $app->post('/admin/users/create', function(){
     $_POST["admin"] = (isset($_POST["admin"]))?1:0;
 
     //Cripitografia hash da senha cadastrada
-    $_POST['password'] = password_hash($_POST["password"], PASSWORD_DEFAULT, [
-
-        "cost"=>12
-
-    ]);
+    $_POST['password'] = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     $user->setData($_POST); 
 
@@ -53,6 +49,60 @@ $app->post('/admin/users/create', function(){
 
     header("Location: /admin/users");
     exit;
+
+});
+
+//Pagina de editar usuário
+$app->get("/admin/users/:id", function($id) {
+
+    User::verifyLogin();
+
+    $user = new User();
+
+	$user->get((int)$id);
+
+    $page = new PageAdmin();
+
+    $page->setTpl("/admin/users-update",array(
+        "user"=>$user->getValues()
+    ));
+
+});
+
+//Submit do editar usuário
+$app->post("/admin/users/:id", function($id) {
+
+	User::verifyLogin();
+
+	$user = new User();
+	
+    $_POST["admin"] = (isset($_POST["admin"]))?1:0;
+    
+    $_POST['password'] = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    
+    $user->get((int)$id);  
+    
+    $user->setData($_POST);    
+	
+	$user->update();
+
+	header("Location: /admin/users");
+	exit;
+});
+
+//Deleta usuário selecionado
+$app->get("/admin/users/:id/delete", function($id) {
+
+    User::verifyLogin();
+
+    $user = new User();
+
+	$user->get((int)$id);
+
+	$user->delete();
+
+	header("Location: /admin/users");
+	exit;
 
 });
 

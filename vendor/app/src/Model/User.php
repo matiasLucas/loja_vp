@@ -80,7 +80,9 @@ class User extends Model {
             return $user;
 
         } else {
+
             throw new \Exception("Usuário inexistente ou senha inválida.");
+
         }
 
     }
@@ -132,18 +134,54 @@ class User extends Model {
             ":password"=>User::getPasswordHash($this->getpassword()),
             ":admin"=>$this->getadmin()
         ));
-
-        //var_dump($results);
-        //$this->setData($results[0]);
     }
 
+     //Cadastra novo usuário
+     public function update()
+     {
+         $sql = new Sql();
+        
+         $results = $sql->select("UPDATE tb_user SET name = :name, password = :password, admin = :admin WHERE id = :id",
+         array(
+            ":id"=>$this->getid(), 
+            ":name"=>$this->getname(), 
+            ":password"=>User::getPasswordHash($this->getpassword()),
+            ":admin"=>$this->getadmin()
+         ));
+     }
+
     public static function getPasswordHash($password)
-    {
+    {    
 
-        return password_hash($password, PASSWORD_DEFAULT, [
-            'cost'=>12
-        ]);
+        return password_hash($password,PASSWORD_DEFAULT);
 
+    }
+     
+    //Lista 1 usuário específico
+    public function get($id){
+
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT * FROM tb_user WHERE id = :id",
+        array(
+           ":id"=>$id
+        ));
+
+        $data = $results[0];
+
+        //$data["name"] = utf8_encode($data["name"]);
+
+        $this->setData($results[0]);           
+    }
+
+
+    public function delete()
+    {                        
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM tb_user WHERE id = :id", array(
+           ":id"=>$this->getid()
+           ));
     }
 
 }
