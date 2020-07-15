@@ -18,12 +18,20 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/admin/categories/<?php echo htmlspecialchars( $category["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post">
+            <form role="form" action="/admin/categories/<?php echo htmlspecialchars( $category["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name">Nome da categoria</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome da categoria" value="<?php echo htmlspecialchars( $category["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                 </div>
+                <div class="form-group">
+                  <label for="file">Foto</label>
+                  <input type="file" class="form-control" id="file" name="file">
+                  <div class="box box-widget">
+                    <div class="box-body">
+                      <img class="img-responsive" id="image-preview" src="<?php echo htmlspecialchars( $category["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="Photo">
+                    </div>
+                  </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

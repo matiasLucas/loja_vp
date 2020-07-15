@@ -16,7 +16,24 @@ class Category extends Model {
         $result = $sql->select("SELECT * FROM tb_categories ORDER BY id");
 
         return $result;
-      }
+    }
+
+    //Força cada item da lista a passar pelo getValues e setData
+    public static function checkList($list)
+    {
+
+        foreach ($list as &$row) {
+
+            $p = new Category();
+            $p->setData($row);
+            $row = $p->getValues();
+
+        }
+
+        return $list;
+
+    }
+
 
     //Cadastra nova categoria
     public function save()
@@ -94,6 +111,80 @@ class Category extends Model {
 
     }
 
+    //Verifica se a categoria contém imagem
+    public function checkPhoto()
+    {           
+        if (file_exists(
+        $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .
+        "res" . DIRECTORY_SEPARATOR .
+        "site" . DIRECTORY_SEPARATOR .
+        "images" . DIRECTORY_SEPARATOR .
+        "categories" . DIRECTORY_SEPARATOR .
+        $this->getid() . ".jpg"
+        )) {      
+
+            $url = "/res/site/images/categories/" . $this->getid() . ".jpg";            
+
+        } else {
+            
+            $url = "/res/site/images/product.jpg";
+            
+        }
+
+        return $this->setimage($url);  
+
+    }
+
+    //Método getVallues sobreescrito para pegar o valor da imagem da categoria
+    public function getValues()
+    {
+
+        $this->checkPhoto();
+
+        $values = parent::getValues();        
+
+        return $values;
+
+    }
+
+    //Converte imagem para jpg e salva no diretório
+    public function setPhoto($file)
+    {
+
+        $extension = explode('.', $file['name']);
+        $extension = end($extension);
+
+        switch ($extension) {
+
+            case "jpg";
+            case "jpeg";
+            $image = imagecreatefromjpeg($file["tmp_name"]);
+            break;
+
+            case "gif";
+            $image = imagecreatefromgif($file["tmp_name"]);
+            break;
+
+            case "png";
+            $image = imagecreatefrompng($file["tmp_name"]);
+            break;
+
+        }
+
+        $dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .
+        "res" . DIRECTORY_SEPARATOR .
+        "site" . DIRECTORY_SEPARATOR .
+        "images" . DIRECTORY_SEPARATOR .
+        "categories" . DIRECTORY_SEPARATOR .
+        $this->getid() . ".jpg";
+
+        imagejpeg($image, $dist);
+
+        imagedestroy($image);
+           
+        $this->checkPhoto();  
+
+    }
 }
 
 ?>

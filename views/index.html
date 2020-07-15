@@ -61,36 +61,14 @@
     <div class="categories-shop">
         <div class="container">
             <div class="row">
+                {loop="$category"}
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/t-shirts-img.jpg" alt="" />                        
-                        <a class="btn hvr-hover" href="#">Camisetas</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/shirt-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Camisas</a>
+                        <img class="img-fluid" src="{$value.image}" alt="" />                        
+                        <a class="btn hvr-hover" href="/category/{$value.id}">{$value.name}</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/wallet-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Carteiras</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/women-bag-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Bolsas</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/shoes-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Calçados Masculinos</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/women-shoes-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Calçados Femininos</a>
-                    </div>
-                </div>
+                {/loop}
             </div>
         </div>
     </div>

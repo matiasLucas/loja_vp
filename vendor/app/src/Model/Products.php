@@ -18,6 +18,23 @@ class Products extends Model {
         return $result;
       }
 
+      //Força cada item da lista a passar pelo getValues e setData
+      public static function checkList($list)
+      {
+  
+          foreach ($list as &$row) {
+  
+              $p = new Products();
+              $p->setData($row);
+              $row = $p->getValues();
+  
+          }
+  
+          return $list;
+  
+      }
+  
+
     //Cadastra nova produto
     public function save()
     {

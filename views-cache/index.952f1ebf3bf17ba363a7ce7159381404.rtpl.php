@@ -61,36 +61,14 @@
     <div class="categories-shop">
         <div class="container">
             <div class="row">
+                <?php $counter1=-1;  if( isset($category) && ( is_array($category) || $category instanceof Traversable ) && sizeof($category) ) foreach( $category as $key1 => $value1 ){ $counter1++; ?>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/t-shirts-img.jpg" alt="" />                        
-                        <a class="btn hvr-hover" href="#">Camisetas</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/shirt-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Camisas</a>
+                        <img class="img-fluid" src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="" />                        
+                        <a class="btn hvr-hover" href="/category/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/wallet-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Carteiras</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/women-bag-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Bolsas</a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/shoes-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Calçados Masculinos</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/women-shoes-img.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">Calçados Femininos</a>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>

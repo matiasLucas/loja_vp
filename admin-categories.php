@@ -92,6 +92,8 @@ $app->post("/admin/categories/:id", function($id) {
 	
 	$category->update();
 
+	$category->setPhoto($_FILES["file"]);
+
 	header("Location: /admin/categories");
 	exit;
 });

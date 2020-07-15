@@ -7,9 +7,13 @@ use \Hcode\Model\Category;
 //Rota pagina inicial
 $app->get('/', function() {
         
+    $category = Category::listAll();
+
     $page = new Page();
 
-    $page->setTpl("index");
+    $page->setTpl("index", [
+        'category'=>Category::checkList($category)
+    ]);
 
 });
 
