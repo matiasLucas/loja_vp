@@ -185,6 +185,65 @@ class Category extends Model {
         $this->checkPhoto();  
 
     }
+  
+    //Seleciona os produtos relacionados e não relacionados com a categoria
+    public function getProducts($related = true)
+    {
+
+        $sql = new Sql();
+
+        if($related === true) {
+
+            return $sql->select("
+            SELECT * FROM tb_products WHERE id IN ( 
+                SELECT a.id  
+                FROM tb_products a  
+                INNER JOIN tb_categoriesproducts b ON a.id = b.idproduct  
+                WHERE b.idcategory = :idcategory 
+            );
+            ", [
+                ':idcategory'=>$this->getid()
+
+            ]);
+
+        } else {
+            return $sql->select("
+            SELECT * FROM tb_products WHERE id NOT IN ( 
+                SELECT a.id  
+                FROM tb_products a  
+                INNER JOIN tb_categoriesproducts b ON a.id = b.idproduct  
+                WHERE b.idcategory = :idcategory
+            );
+            ", [
+                ':idcategory'=>$this->getid()
+
+            ]);
+        }
+    }
+  
+    //Adiciona o produto na categoria   
+    public function addProduct(Products $product)
+    {
+        $sql = new Sql();
+
+        $sql->query("INSERT INTO tb_categoriesproducts (idcategory, idproduct) VALUES(:idcategory,:idproduct)", [
+            ':idcategory'=>$this->getidcategory(),
+            ':idproduct'=>$product->getidproduct()
+        ]);        
+
+    }
+
+    //Remove o produto da categoria
+    public function removeProduct(Products $product)
+    {
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM tb_categoriesproducts WHERE idcategory = :idcategory AND idproduct = :idproduct", [
+            ':idcategory'=>$this->getidcategory(),
+            ':idproduct'=>$product->getidproduct()
+        ]);
+    }
+
 }
 
 ?>

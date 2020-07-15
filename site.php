@@ -26,7 +26,7 @@ $app->get("/category/:id", function($id){
     $page = new Page();
 
     $page->setTpl("category", [
-        'category'=>$category->getValues()
+        'category'=>$category->getValues()        
     ]);
 
 });

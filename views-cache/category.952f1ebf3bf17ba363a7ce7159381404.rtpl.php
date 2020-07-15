@@ -48,7 +48,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Shop</h2>
+                    <h2><?php echo htmlspecialchars( $category["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Shop</li>
