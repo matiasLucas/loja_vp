@@ -27,8 +27,7 @@
                     <thead>
                       <tr>
                         <th style="width: 10px">#</th>                       
-                        <th>Descrição</th>
-                        <th>Imagem</th>                        
+                        <th>Descrição</th>                                             
                         <th>Preço</th>                        
                         <th style="width: 140px">&nbsp;</th>
                       </tr>
@@ -37,8 +36,7 @@
                       <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
                       <tr>
                         <td><?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                        <td><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
-                        <td><?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>                        
+                        <td><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>                                          
                         <td><?php echo htmlspecialchars( $value1["price"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>                                            
                         <td>
                           <a href="/admin/products/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>

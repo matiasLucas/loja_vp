@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/res/site/images/t-shirts-img.jpg" alt="" />
+                        <img class="img-fluid" src="/res/site/images/t-shirts-img.jpg" alt="" />                        
                         <a class="btn hvr-hover" href="#">Camisetas</a>
                     </div>
                     <div class="shop-cat-box">

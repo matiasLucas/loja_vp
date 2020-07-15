@@ -23,16 +23,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/admin/products/create" method="post">
+            <form role="form" action="/admin/products/create" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name">Nome do produto</label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do produto">
                 </div>                
-                <div class="form-group">
-                  <label for="image">Imagem</label>
-                  <input type="image" class="form-control" id="image" name="image" step="0.01" placeholder="0.00">
-                </div>
                 <div class="form-group">
                   <label for="price">Preço</label>
                   <input type="number" class="form-control" id="price" name="price" step="0.01" placeholder="0.00">

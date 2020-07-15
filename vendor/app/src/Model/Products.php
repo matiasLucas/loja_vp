@@ -23,10 +23,9 @@ class Products extends Model {
     {
         $sql = new Sql();
 
-        $results = $sql->select("INSERT INTO tb_products(name, image, price) VALUES(:name, :image, :price)",
+        $results = $sql->select("INSERT INTO tb_products(name, price) VALUES(:name, :price)",
         array(
-            ":name"=>$this->getname(), 
-            ":image"=>$this->getimage(), 
+            ":name"=>$this->getname(),             
             ":price"=>$this->getprice(), 
         )); 
     }
@@ -69,6 +68,82 @@ class Products extends Model {
            ":id"=>$this->getid()
            ));
     }
+
+    //Verifica se o produto contém imagem
+    public function checkPhoto()
+    {
+        if (file_exists(
+        $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .
+         "res" . DIRECTORY_SEPARATOR .
+         "site" . DIRECTORY_SEPARATOR .
+         "images" . DIRECTORY_SEPARATOR .
+         "products" . DIRECTORY_SEPARATOR .
+         $this->getid() . ".jpg"
+         )) {      
+
+            $url = "/res/site/images/products/" . $this->getid() . ".jpg";
+
+
+         } else {
+
+            $url = "/res/site/images/product.jpg";
+           
+         }
+         return $this->setimage($url);     
+
+    }
+
+    //Método getVallues sobreescrito para pegar o valor da imagem do produto
+    public function getValues()
+    {
+
+        $this->checkPhoto();
+
+        $values = parent::getValues();
+
+        return $values;
+
+    }
+
+    //Converte imagem para jpg e salva no diretório
+    public function setPhoto($file)
+    {
+
+        $extension = explode('.', $file['name']);
+        $extension = end($extension);
+
+        switch ($extension) {
+
+            case "jpg";
+            case "jpeg";
+            $image = imagecreatefromjpeg($file["tmp_name"]);
+            break;
+
+            case "gif";
+            $image = imagecreatefromgif($file["tmp_name"]);
+            break;
+
+            case "png";
+            $image = imagecreatefrompng($file["tmp_name"]);
+            break;
+
+        }
+
+        $dist = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR .
+        "res" . DIRECTORY_SEPARATOR .
+        "site" . DIRECTORY_SEPARATOR .
+        "images" . DIRECTORY_SEPARATOR .
+        "products" . DIRECTORY_SEPARATOR .
+        $this->getid() . ".jpg";
+
+        imagejpeg($image, $dist);
+
+        imagedestroy($image);
+
+        $this->checkPhoto();
+
+    }
+
 
 }
 

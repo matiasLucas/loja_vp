@@ -58,14 +58,12 @@
         </div>
     </div>
     <!-- End All Title Box -->
-
     <!-- Start Shop Page  -->
     <div class="shop-box-inner">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
-                    <div class="product-categori">
-                       
+                    <div class="product-categories">                       
                         <div class="filter-sidebar-left">
                             <div class="title-left">
                                 <h3>Categorias</h3>
