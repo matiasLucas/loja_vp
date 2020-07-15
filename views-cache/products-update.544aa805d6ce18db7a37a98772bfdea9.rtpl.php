@@ -18,7 +18,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/admin/products/<?php echo htmlspecialchars( $product["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="/admin/products/<?php echo htmlspecialchars( $product["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" enctype="multipart/form-data">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name">Nome da produto</label>

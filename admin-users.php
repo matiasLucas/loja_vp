@@ -50,13 +50,13 @@ $app->post('/admin/users/create', function(){
 });
 
 //Pagina de editar usuário
-$app->get("/admin/users/:id", function($id) {
+$app->get("/admin/users/:iduser", function($iduser) {
 
     User::verifyLogin();
 
     $user = new User();
 
-	$user->get((int)$id);
+	$user->get((int)$iduser);
 
     $page = new PageAdmin();
 
@@ -67,7 +67,7 @@ $app->get("/admin/users/:id", function($id) {
 });
 
 //Submit do editar usuário
-$app->post("/admin/users/:id", function($id) {
+$app->post("/admin/users/:iduser", function($iduser) {
 
 	User::verifyLogin();
 
@@ -75,7 +75,7 @@ $app->post("/admin/users/:id", function($id) {
 	
     $_POST["admin"] = (isset($_POST["admin"]))?1:0;
     
-    $user->get((int)$id);  
+    $user->get((int)$iduser);  
     
     $user->setData($_POST);    
 	
@@ -86,13 +86,13 @@ $app->post("/admin/users/:id", function($id) {
 });
 
 //Deleta usuário selecionado
-$app->get("/admin/users/:id/delete", function($id) {
+$app->get("/admin/users/:iduser/delete", function($iduser) {
 
     User::verifyLogin();
 
     $user = new User();
 
-	$user->get((int)$id);
+	$user->get((int)$iduser);
 
 	$user->delete();
 

@@ -49,13 +49,13 @@ $app->post("/admin/categories/create", function(){
 });
 
 //Deleta uma categoria
-$app->get("/admin/categories/:id/delete", function($id) {
+$app->get("/admin/categories/:idcategory/delete", function($idcategory) {
 
     User::verifyLogin();
 
     $category = new Category();
 
-	$category->get((int)$id);
+	$category->get((int)$idcategory);
 
 	$category->delete();
 
@@ -65,13 +65,13 @@ $app->get("/admin/categories/:id/delete", function($id) {
 });
 
 //Tela de edição de categoria
-$app->get("/admin/categories/:id", function($id) {
+$app->get("/admin/categories/:idcategory", function($idcategory) {
 
 	User::verifyLogin();
 
     $category = new Category();	
 
-	$category->get((int)$id);	
+	$category->get((int)$idcategory);	
 
     $page = new PageAdmin();
 
@@ -81,13 +81,13 @@ $app->get("/admin/categories/:id", function($id) {
 
 });
 
-$app->post("/admin/categories/:id", function($id) {
+$app->post("/admin/categories/:idcategory", function($idcategory) {
 
 	User::verifyLogin();
 
 	$category = new Category();
 	
-    $category->get((int)$id);  
+    $category->get((int)$idcategory);  
 	
     $category->setData($_POST);    
 	
@@ -99,13 +99,13 @@ $app->post("/admin/categories/:id", function($id) {
 	exit;
 });
 
-$app->get("/admin/categories/:id/products", function($id) {
+$app->get("/admin/categories/:idcategory/products", function($idcategory) {
 
 	User::verifyLogin();
 
     $category = new Category();	
 
-	$category->get((int)$id);	
+	$category->get((int)$idcategory);	
 
     $page = new PageAdmin();
 

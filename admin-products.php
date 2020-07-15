@@ -47,13 +47,13 @@ $app->post("/admin/products/create", function(){
 });
 
 //Deleta categoria
-$app->get("/admin/products/:id/delete", function($id){
+$app->get("/admin/products/:idproduct/delete", function($idproduct){
 
     User::verifyLogin();
 
     $products = new Products();
 
-	$products->get((int)$id);
+	$products->get((int)$idproduct);
 
 	$products->delete();
 
@@ -63,13 +63,13 @@ $app->get("/admin/products/:id/delete", function($id){
 });
 
 //Tela de edição do produto
-$app->get("/admin/products/:id", function($id){
+$app->get("/admin/products/:idproduct", function($idproduct){
 
 	User::verifyLogin();
 
 	$products = new Products();	
 
-	$products->get((int)$id);	
+	$products->get((int)$idproduct);	
 
     $page = new PageAdmin();
 
@@ -80,13 +80,13 @@ $app->get("/admin/products/:id", function($id){
 });
 
 //Edita o produto
-$app->post("/admin/products/:id", function($id) {
+$app->post("/admin/products/:idproduct", function($idproduct) {
 
 	User::verifyLogin();
 
 	$products = new Products();
 	
-    $products->get((int)$id);  
+    $products->get((int)$idproduct);  
 	
     $products->setData($_POST);    
 	

@@ -5,7 +5,7 @@ namespace Hcode\Model;
 use \Hcode\DB\Sql;
 use \Hcode\Model;
 
-//Classe da entidade usuario
+//Classe da entiduserade usuario
 class User extends Model {
 
     const SESSION = "User";
@@ -15,7 +15,7 @@ class User extends Model {
     {
         $user = new User();
 
-		if (isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['id'] > 0) {
+		if (isset($_SESSION[User::SESSION]) && (int)$_SESSION[User::SESSION]['iduser'] > 0) {
 			$user->setData($_SESSION[User::SESSION]);
 		}
 		return $user;
@@ -29,7 +29,7 @@ class User extends Model {
             ||
             !$_SESSION[User::SESSION]
             ||
-            !(int)$_SESSION[User::SESSION]["id"] > 0
+            !(int)$_SESSION[User::SESSION]["iduser"] > 0
          ) {
              //Não está logado
              return false;
@@ -63,7 +63,7 @@ class User extends Model {
 
         if (count($results) === 0)
         {    
-            throw new \Exception("Usuário inexistente ou senha inválida.");
+            throw new \Exception("Usuário inexistente ou senha inválidusera.");
         }
 
         $data = $results[0];
@@ -81,7 +81,7 @@ class User extends Model {
 
         } else {
 
-            throw new \Exception("Usuário inexistente ou senha inválida.");
+            throw new \Exception("Usuário inexistente ou senha inválidusera.");
 
         }
 
@@ -118,7 +118,7 @@ class User extends Model {
     {
         $sql = new Sql();
         
-        $result = $sql->select("SELECT * FROM tb_user ORDER BY id");
+        $result = $sql->select("SELECT * FROM tb_user ORDER BY iduser");
 
         return $result;
       }
@@ -134,6 +134,7 @@ class User extends Model {
             ":password"=>User::getPasswordHash($this->getpassword()),
             ":admin"=>$this->getadmin()
         ));
+
     }
 
      //Cadastra novo usuário
@@ -141,9 +142,9 @@ class User extends Model {
      {
          $sql = new Sql();
         
-         $results = $sql->select("UPDATE tb_user SET name = :name, password = :password, admin = :admin WHERE id = :id",
+         $results = $sql->select("UPDATE tb_user SET name = :name, password = :password, admin = :admin WHERE iduser = :iduser",
          array(
-            ":id"=>$this->getid(), 
+            ":iduser"=>$this->getiduser(), 
             ":name"=>$this->getname(), 
             ":password"=>User::getPasswordHash($this->getpassword()),
             ":admin"=>$this->getadmin()
@@ -158,13 +159,13 @@ class User extends Model {
     }
      
     //Lista 1 usuário específico
-    public function get($id){
+    public function get($iduser){
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_user WHERE id = :id",
+        $results = $sql->select("SELECT * FROM tb_user WHERE iduser = :iduser",
         array(
-           ":id"=>$id
+           ":iduser"=>$iduser
         ));
 
         $data = $results[0];
@@ -179,8 +180,8 @@ class User extends Model {
     {                        
         $sql = new Sql();
 
-        $sql->query("DELETE FROM tb_user WHERE id = :id", array(
-           ":id"=>$this->getid()
+        $sql->query("DELETE FROM tb_user WHERE iduser = :iduser", array(
+           ":iduser"=>$this->getiduser()
            ));
     }
 

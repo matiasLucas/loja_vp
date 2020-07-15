@@ -13,7 +13,7 @@ class Products extends Model {
     {
         $sql = new Sql();
         
-        $result = $sql->select("SELECT * FROM tb_products ORDER BY id");
+        $result = $sql->select("SELECT * FROM tb_products ORDER BY idproduct");
 
         return $result;
       }
@@ -52,21 +52,21 @@ class Products extends Model {
      {    
         $sql = new Sql();
         
-        $results = $sql->select("UPDATE tb_products SET name = :name WHERE id = :id",
+        $results = $sql->select("UPDATE tb_products SET name = :name WHERE idproduct = :idproduct",
         array(
-           ":id"=>$this->getid(), 
+           ":idproduct"=>$this->getidproduct(), 
            ":name"=>$this->getname()
         ));
      }
 
     //Lista 1 produto específico
-    public function get($id){
+    public function get($idproduct){
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_products WHERE id = :id",
+        $results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct",
         array(
-           ":id"=>$id
+           ":idproduct"=>$idproduct
         ));
 
         $data = $results[0];
@@ -81,8 +81,8 @@ class Products extends Model {
     {                        
         $sql = new Sql();
 
-        $sql->query("DELETE FROM tb_products WHERE id = :id", array(
-           ":id"=>$this->getid()
+        $sql->query("DELETE FROM tb_products WHERE idproduct = :idproduct", array(
+           ":idproduct"=>$this->getidproduct()
            ));
     }
 
@@ -95,10 +95,10 @@ class Products extends Model {
          "site" . DIRECTORY_SEPARATOR .
          "images" . DIRECTORY_SEPARATOR .
          "products" . DIRECTORY_SEPARATOR .
-         $this->getid() . ".jpg"
+         $this->getidproduct() . ".jpg"
          )) {      
 
-            $url = "/res/site/images/products/" . $this->getid() . ".jpg";
+            $url = "/res/site/images/products/" . $this->getidproduct() . ".jpg";
 
 
          } else {
@@ -151,7 +151,7 @@ class Products extends Model {
         "site" . DIRECTORY_SEPARATOR .
         "images" . DIRECTORY_SEPARATOR .
         "products" . DIRECTORY_SEPARATOR .
-        $this->getid() . ".jpg";
+        $this->getidproduct() . ".jpg";
 
         imagejpeg($image, $dist);
 

@@ -13,7 +13,7 @@ class Category extends Model {
     {
         $sql = new Sql();
         
-        $result = $sql->select("SELECT * FROM tb_categories ORDER BY id");
+        $result = $sql->select("SELECT * FROM tb_categories ORDER BY idcategory");
 
         return $result;
     }
@@ -54,9 +54,9 @@ class Category extends Model {
      {    
         $sql = new Sql();
         
-        $results = $sql->select("UPDATE tb_categories SET name = :name WHERE id = :id",
+        $results = $sql->select("UPDATE tb_categories SET name = :name WHERE idcategory = :idcategory",
         array(
-           ":id"=>$this->getid(), 
+           ":idcategory"=>$this->getidcategory(), 
            ":name"=>$this->getname()
         ));    
 
@@ -65,14 +65,14 @@ class Category extends Model {
      }
 
     //Lista 1 categoria específica
-    public function get($id)
+    public function get($idcategory)
     {
 
         $sql = new Sql();
 
-        $results = $sql->select("SELECT * FROM tb_categories WHERE id = :id",
+        $results = $sql->select("SELECT * FROM tb_categories WHERE idcategory = :idcategory",
         array(
-           ":id"=>$id
+           ":idcategory"=>$idcategory
         ));
 
         $data = $results[0];
@@ -87,8 +87,8 @@ class Category extends Model {
     {                        
         $sql = new Sql();
 
-        $sql->query("DELETE FROM tb_categories WHERE id = :id", array(
-           ":id"=>$this->getid()
+        $sql->query("DELETE FROM tb_categories WHERE idcategory= :idcategory", array(
+           ":idcategory"=>$this->getidcategory()
            ));
 
         Category::updateFile();
@@ -103,7 +103,7 @@ class Category extends Model {
         $html = [];
 
         foreach ($categories as $row) {
-            array_push($html, '<li><a href="/category/'.$row['id'].'">'.$row['name'].'</a></li>');
+            array_push($html, '<li><a href="/category/'.$row['idcategory'].'">'.$row['name'].'</a></li>');
         }
 
         //salva arquivo
@@ -120,10 +120,10 @@ class Category extends Model {
         "site" . DIRECTORY_SEPARATOR .
         "images" . DIRECTORY_SEPARATOR .
         "categories" . DIRECTORY_SEPARATOR .
-        $this->getid() . ".jpg"
+        $this->getidcategory() . ".jpg"
         )) {      
 
-            $url = "/res/site/images/categories/" . $this->getid() . ".jpg";            
+            $url = "/res/site/images/categories/" . $this->getidcategory() . ".jpg";            
 
         } else {
             
@@ -150,7 +150,7 @@ class Category extends Model {
     //Converte imagem para jpg e salva no diretório
     public function setPhoto($file)
     {
-
+        
         $extension = explode('.', $file['name']);
         $extension = end($extension);
 
@@ -176,7 +176,7 @@ class Category extends Model {
         "site" . DIRECTORY_SEPARATOR .
         "images" . DIRECTORY_SEPARATOR .
         "categories" . DIRECTORY_SEPARATOR .
-        $this->getid() . ".jpg";
+        $this->getidcategory() . ".jpg";
 
         imagejpeg($image, $dist);
 
@@ -195,27 +195,27 @@ class Category extends Model {
         if($related === true) {
 
             return $sql->select("
-            SELECT * FROM tb_products WHERE id IN ( 
-                SELECT a.id  
+            SELECT * FROM tb_products WHERE idproduct IN ( 
+                SELECT a.idproduct 
                 FROM tb_products a  
-                INNER JOIN tb_categoriesproducts b ON a.id = b.idproduct  
+                INNER JOIN tb_categoriesproducts b ON a.idproduct= b.idproduct  
                 WHERE b.idcategory = :idcategory 
             );
             ", [
-                ':idcategory'=>$this->getid()
+                ':idcategory'=>$this->getidcategory()
 
             ]);
 
         } else {
             return $sql->select("
-            SELECT * FROM tb_products WHERE id NOT IN ( 
-                SELECT a.id  
+            SELECT * FROM tb_products WHERE idproduct NOT IN ( 
+                SELECT a.idproduct 
                 FROM tb_products a  
-                INNER JOIN tb_categoriesproducts b ON a.id = b.idproduct  
+                INNER JOIN tb_categoriesproducts b ON a.idproduct= b.idproduct  
                 WHERE b.idcategory = :idcategory
             );
             ", [
-                ':idcategory'=>$this->getid()
+                ':idcategory'=>$this->getidcategory()
 
             ]);
         }
