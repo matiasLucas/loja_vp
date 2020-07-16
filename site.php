@@ -34,4 +34,20 @@ $app->get("/category/:idcategory", function($idcategory){
 
 });
 
+$app->get("/products/:idproduct", function($idproduct){
+
+    $product = new Products();
+
+	$product->get($idproduct);
+
+	$page = new Page();
+
+	$page->setTpl("product-detail", [
+		'product'=>$product->getValues(),
+		'categories'=>$product->getCategories()
+	]);
+
+
+});
+
 ?>
