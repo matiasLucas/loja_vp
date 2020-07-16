@@ -81,6 +81,7 @@ $app->get("/admin/categories/:idcategory", function($idcategory) {
 
 });
 
+//Edita a categoria
 $app->post("/admin/categories/:idcategory", function($idcategory) {
 
 	User::verifyLogin();
@@ -99,6 +100,7 @@ $app->post("/admin/categories/:idcategory", function($idcategory) {
 	exit;
 });
 
+//Carrega os produtos da categoria
 $app->get("/admin/categories/:idcategory/products", function($idcategory) {
 
 	User::verifyLogin();
@@ -117,7 +119,7 @@ $app->get("/admin/categories/:idcategory/products", function($idcategory) {
 
 });
 
-
+//Adiciona um produto na categoria
 $app->get("/admin/categories/:idcategory/products/:idproduct/add", function($idcategory, $idproduct){
 
 	User::verifyLogin();
@@ -136,6 +138,7 @@ $app->get("/admin/categories/:idcategory/products/:idproduct/add", function($idc
 	exit;
 });
 
+//Remove um produto da categoria
 $app->get("/admin/categories/:idcategory/products/:idproduct/remove", function($idcategory, $idproduct){
 
 	User::verifyLogin();

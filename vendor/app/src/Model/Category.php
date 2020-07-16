@@ -194,7 +194,7 @@ class Category extends Model {
 
         if($related === true) {
 
-            return $sql->select("
+            $results = $sql->select("
             SELECT * FROM tb_products WHERE idproduct IN ( 
                 SELECT a.idproduct 
                 FROM tb_products a  
@@ -205,6 +205,10 @@ class Category extends Model {
                 ':idcategory'=>$this->getidcategory()
 
             ]);
+
+            $ret = Products::checkList($results);            
+
+            return $ret;
 
         } else {
             return $sql->select("

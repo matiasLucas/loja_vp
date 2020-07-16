@@ -110,7 +110,7 @@ class Products extends Model {
 
     }
 
-    //Método getVallues sobreescrito para pegar o valor da imagem do produto
+    //Método getValues sobreescrito para pegar o valor da imagem do produto
     public function getValues()
     {
 

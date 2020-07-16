@@ -3,6 +3,7 @@
 use \Hcode\Page;
 use \Hcode\Model\User;
 use \Hcode\Model\Category;
+use \Hcode\Model\Products;
 
 //Rota pagina inicial
 $app->get('/', function() {
@@ -17,16 +18,18 @@ $app->get('/', function() {
 
 });
 
-$app->get("/category/:id", function($id){
+//Tela de produtos por categoria
+$app->get("/category/:idcategory", function($idcategory){
 
     $category = new Category();
 
-    $category->get((int)$id);
+    $category->get((int)$idcategory);
 
     $page = new Page();
 
     $page->setTpl("category", [
-        'category'=>$category->getValues()        
+        'category'=>$category->getValues(),  
+		'products'=>$category->getProducts()
     ]);
 
 });

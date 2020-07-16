@@ -26,7 +26,7 @@ $app->get('/admin/users/create', function(){
     
     $page = new PageAdmin();
 
-    $page->setTpl("/admin/users-create");
+    $page->setTpl("/admin/users-create");    
 
 });
 
