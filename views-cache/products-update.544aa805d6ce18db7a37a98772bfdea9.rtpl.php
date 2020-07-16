@@ -27,7 +27,11 @@
                 <div class="form-group">
                   <label for="price">Preço</label>
                   <input type="number" class="form-control" id="price" name="price" step="0.01" placeholder="0.00" value="<?php echo htmlspecialchars( $product["price"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                </div>              
+                </div>    
+                <div class="form-group">
+                  <label for="desc">Nome da produto</label>
+                  <input type="text" class="form-control" id="desc" name="desc" placeholder="Escreva uma descrição" value="<?php echo htmlspecialchars( $product["desc"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                </div>
                 <div class="form-group">
                   <label for="file">Foto</label>
                   <input type="file" class="form-control" id="file" name="file" value="<?php echo htmlspecialchars( $product["price"], ENT_COMPAT, 'UTF-8', FALSE ); ?>>

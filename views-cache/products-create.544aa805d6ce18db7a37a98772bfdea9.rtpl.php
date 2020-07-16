@@ -33,6 +33,10 @@
                   <label for="price">Preço</label>
                   <input type="number" class="form-control" id="price" name="price" step="0.01" placeholder="0.00">
                 </div>
+                <div class="form-group">
+                  <label for="desc">Descrição</label>
+                  <input type="text" class="form-control" id="desc" name="desc" placeholder="Escreva uma descrição">
+                </div>
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

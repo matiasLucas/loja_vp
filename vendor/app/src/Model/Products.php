@@ -40,10 +40,11 @@ class Products extends Model {
     {
         $sql = new Sql();
 
-        $results = $sql->select("INSERT INTO tb_products(name, price) VALUES(:name, :price)",
+        $results = $sql->select("INSERT INTO tb_products(name, price,`desc`) VALUES(:name, :price, :desc)",
         array(
             ":name"=>$this->getname(),             
             ":price"=>$this->getprice(), 
+            ":desc"=>$this->getdesc(), 
         )); 
     }
 
@@ -52,10 +53,12 @@ class Products extends Model {
      {    
         $sql = new Sql();
         
-        $results = $sql->select("UPDATE tb_products SET name = :name WHERE idproduct = :idproduct",
+        $results = $sql->select("UPDATE `crud_vp`.`tb_products` SET name = :name, price = :price, `desc` = :desc WHERE (`idproduct` = :idproduct);",
         array(
            ":idproduct"=>$this->getidproduct(), 
-           ":name"=>$this->getname()
+           ":name"=>$this->getname(),
+           ":price"=>$this->getprice(),
+           ":desc"=>$this->getdesc()
         ));
      }
 

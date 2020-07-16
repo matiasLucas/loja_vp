@@ -29,8 +29,7 @@
                         <h5>R$<?php echo htmlspecialchars( $product["price"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h5>                        
                             <p>
                                 <h4>Descrição</h4>
-                                <p>Nam sagittis a augue eget scelerisque. Nullam lacinia consectetur sagittis. Nam sed neque id eros fermentum dignissim quis at tortor. Nullam ultricies urna quis sem sagittis pharetra. Nam erat turpis, cursus in ipsum at,
-                                    tempor imperdiet metus. In interdum id nulla tristique accumsan. Ut semper in quam nec pretium. Donec egestas finibus suscipit. Curabitur tincidunt convallis arcu. </p>
+                                <p><?php echo htmlspecialchars( $product["desc"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
                                 <ul>                                   
                                     <li>
                                         <div class="form-group quantity-box">
