@@ -4,6 +4,7 @@ use \Hcode\Page;
 use \Hcode\Model\User;
 use \Hcode\Model\Category;
 use \Hcode\Model\Products;
+use \Hcode\Model\Cart;
 
 //Rota pagina inicial
 $app->get('/', function() {
@@ -47,6 +48,20 @@ $app->get("/products/:idproduct", function($idproduct){
 		'categories'=>$product->getCategories()
 	]);
 
+
+});
+
+$app->get("/cart", function(){    
+
+    $cart = Cart::getFromSession();
+
+    $page = new Page();
+
+    $page->setTpl("cart", [
+		'cart'=>$cart->getValues(),
+		'products'=>$cart->getProducts(),
+		'error'=>Cart::getMsgError()
+	]);
 
 });
 

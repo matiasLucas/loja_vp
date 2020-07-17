@@ -20,7 +20,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
                             <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Comprar</a></p>
+                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
                             <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Comprar</a></p>
+                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
                             <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Comprar</a></p>
+                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
                         </div>
                     </div>
                 </div>

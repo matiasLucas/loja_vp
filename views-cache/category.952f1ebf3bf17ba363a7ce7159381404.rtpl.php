@@ -88,9 +88,9 @@
                                                   <img src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
-                                                            <li><a href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-toggle="tooltip" data-placement="right" title="Vizualizar"><i class="fas fa-eye"></i></a></li>                                                                                                                       
+                                                            <li><a href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-toggle="tooltip" data-placement="right" title="Visualizar"><i class="fas fa-eye"></i></a></li>                                                                                                                       
                                                         </ul>
-                                                        <a class="cart" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Add to Cart</a>
+                                                        <a class="cart" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Comprar</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
