@@ -90,7 +90,7 @@
                                                         <ul>
                                                             <li><a href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-toggle="tooltip" data-placement="right" title="Vizualizar"><i class="fas fa-eye"></i></a></li>                                                                                                                       
                                                         </ul>
-                                                        <a class="cart" href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add">Add to Cart</a>
+                                                        <a class="cart" href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Detalhes</a>
                                                     </div>
                                                 </div>
                                                 <div class="why-text">

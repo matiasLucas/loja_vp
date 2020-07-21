@@ -54,6 +54,7 @@
     <script src="/res/site/js/popper.min.js"></script>
     <script src="/res/site/js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
+    <script src="/res/site/js/jquery.validate.min.js"></script>
     <script src="/res/site/js/jquery.superslides.min.js"></script>
     <script src="/res/site/js/bootstrap-select.js"></script>
     <script src="/res/site/js/inewsticker.js"></script>

@@ -34,6 +34,7 @@ $app->get("/category/:idcategory", function($idcategory){
 
 });
 
+//Tela de detalhes do produto
 $app->get("/products/:idproduct", function($idproduct){
 
     $product = new Products();
@@ -49,5 +50,6 @@ $app->get("/products/:idproduct", function($idproduct){
 
 
 });
+
 
 ?>

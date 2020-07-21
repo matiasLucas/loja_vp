@@ -47,14 +47,14 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="index.html"><h1>Loja VP</h1> </h1></a>
+                    <a class="navbar-brand" href="/"><h1>Loja VP</h1> </h1></a>
                 </div>
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Pagina inicial</a></li>                        
+                        <li class="nav-item active"><a class="nav-link" href="/">Pagina inicial</a></li>                        
                         <li class="dropdown megamenu-fw">
                             <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Produtos</a>
                             <ul class="dropdown-menu megamenu-content" role="menu">                                
