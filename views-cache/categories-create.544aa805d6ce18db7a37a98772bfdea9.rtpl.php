@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Lista de Categorias
+        Cadastro de Categorias
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="/admin/categories/create" method="post">
+            <form role="form" id="formCategory" action="/admin/categories/create" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <label for="name">Nome da categoria</label>

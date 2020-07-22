@@ -17,7 +17,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/res/admin/index2.html"><b>Página de Administração</b> Loja VP</a>
+    <a><b>Página de Administração</b> Loja VP</a>
   </div>
   <div class="login-box-body">
     <p class="login-box-msg">Entre com usuário e senha</p>
