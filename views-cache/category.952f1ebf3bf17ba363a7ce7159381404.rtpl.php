@@ -83,19 +83,23 @@
                                     <div class="row">
                                         <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>                                                                                                                     
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                                            <div class="products-single fix">
-                                                <div class="box-img-hover">
-                                                  <img src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-fluid" alt="Image">
-                                                    <div class="mask-icon">
-                                                        <ul>
-                                                            <li><a href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-toggle="tooltip" data-placement="right" title="Visualizar"><i class="fas fa-eye"></i></a></li>                                                                                                                       
-                                                        </ul>
-                                                        <a class="cart" href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Detalhes</a>
+                                            <div data-aos="flip-left"
+                                                data-aos-easing="ease-out-cubic"
+                                                data-aos-duration="2000">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+                                                    <img src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="img-fluid" alt="Image">
+                                                        <div class="mask-icon">
+                                                            <ul>
+                                                                <li><a href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" data-toggle="tooltip" data-placement="right" title="Visualizar"><i class="fas fa-eye"></i></a></li>                                                                                                                       
+                                                            </ul>
+                                                            <a class="cart" href="/products/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">Detalhes</a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="why-text">
-                                                    <h4><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
-                                                    <h5>R$<?php echo formatPrice($value1["price"]); ?></h5>
+                                                    <div class="why-text">
+                                                        <h4><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
+                                                        <h5>R$<?php echo formatPrice($value1["price"]); ?></h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>                                        

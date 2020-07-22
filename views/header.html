@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/res/site/css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/res/site/css/custom.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -67,20 +69,14 @@
                                         </ul>
                                     </div>
                                 </div> 
-                            </div>                 
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contato</a></li>
+                            </div>                                    
                 </ul>
             </div>
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
-                    <ul>
-                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                        <li class="">
-                        <a href="/cart"><i class="fa fa-shopping-bag"></i>                            
-					</a></li>
-                    </ul>
+                    
                 </div>
                 <!-- End Atribute Navigation -->
             </div>            

@@ -19,8 +19,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos</p>
                         </div>
                     </div>
                 </div>
@@ -31,8 +30,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos </p>
                         </div>
                     </div>
                 </div>
@@ -43,8 +41,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos </p>                            
                         </div>
                     </div>
                 </div>
@@ -61,13 +58,16 @@
     <div class="categories-shop">
         <div class="container">
             <div class="row">
-                <?php $counter1=-1;  if( isset($category) && ( is_array($category) || $category instanceof Traversable ) && sizeof($category) ) foreach( $category as $key1 => $value1 ){ $counter1++; ?>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="" />                        
-                        <a class="btn hvr-hover" href="/category/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
+                <?php $counter1=-1;  if( isset($category) && ( is_array($category) || $category instanceof Traversable ) && sizeof($category) ) foreach( $category as $key1 => $value1 ){ $counter1++; ?>               
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
+                    <div data-aos="zoom-in-up">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" src="<?php echo htmlspecialchars( $value1["image"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="" />                        
+                            <a class="btn hvr-hover" href="/category/<?php echo htmlspecialchars( $value1["idcategory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
+                        </div>
                     </div>
                 </div>
+                
                 <?php } ?>
             </div>
         </div>

@@ -19,8 +19,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos</p>
                         </div>
                     </div>
                 </div>
@@ -31,8 +30,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos </p>
                         </div>
                     </div>
                 </div>
@@ -43,8 +41,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bem-vindo à <br> Loja VP</strong></h1>
-                            <p class="m-b-40">Confira nossa coleção de produtos <br> clique abaixo:</p>
-                            <p><a class="btn hvr-hover" href="#">Ver Categorias</a></p>
+                            <p class="m-b-40">Confira nossa coleção de produtos </p>                            
                         </div>
                     </div>
                 </div>
@@ -61,13 +58,16 @@
     <div class="categories-shop">
         <div class="container">
             <div class="row">
-                {loop="$category"}
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{$value.image}" alt="" />                        
-                        <a class="btn hvr-hover" href="/category/{$value.idcategory}">{$value.name}</a>
+                {loop="$category"}               
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"> 
+                    <div data-aos="zoom-in-up">
+                        <div class="shop-cat-box">
+                            <img class="img-fluid" src="{$value.image}" alt="" />                        
+                            <a class="btn hvr-hover" href="/category/{$value.idcategory}">{$value.name}</a>
+                        </div>
                     </div>
                 </div>
+                
                 {/loop}
             </div>
         </div>

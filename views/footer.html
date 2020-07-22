@@ -66,6 +66,14 @@
     <script src="/res/site/js/form-validator.min.js"></script>
     <script src="/res/site/js/contact-form-script.js"></script>
     <script src="/res/site/js/custom.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+        });
+    </script>
 </body>
+
+
 
 </html>
