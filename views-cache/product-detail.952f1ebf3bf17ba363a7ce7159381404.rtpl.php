@@ -40,7 +40,7 @@
                                 </ul>
                                 <div class="price-box-bar">
                                     <div class="cart-and-bay-btn">
-                                        <a class="btn hvr-hover" data-fancybox-close="" href="/cart/{values.idproduct}/add">Comprar</a>                                        
+                                        <a class="btn hvr-hover" data-fancybox-close="" href="#">Comprar</a>                                        
                                     </div>
                                 </div>
                     </div>

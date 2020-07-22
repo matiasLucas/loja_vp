@@ -52,21 +52,5 @@ $app->get("/products/:idproduct", function($idproduct){
 
 });
 
-<<<<<<< HEAD
-=======
-$app->get("/cart", function(){    
-
-    $cart = Cart::getFromSession();
-
-    $page = new Page();
-
-    $page->setTpl("cart", [
-		'cart'=>$cart->getValues(),
-		'products'=>$cart->getProducts(),
-		'error'=>Cart::getMsgError()
-	]);
-
-});
->>>>>>> e9cadc895ec9a045d4c17c09f1f22e739cdd100f
 
 ?>
