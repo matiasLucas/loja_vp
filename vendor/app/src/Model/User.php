@@ -9,7 +9,7 @@ use \Hcode\Model;
 class User extends Model {
 
     const SESSION = "User";
-
+    const ERROR = "UserError";
 
     public static function getFromSession()
     {
@@ -63,7 +63,7 @@ class User extends Model {
 
         if (count($results) === 0)
         {    
-            throw new \Exception("Usuário inexistente ou senha inválidusera.");
+            throw new \Exception("Usuário inexistente ou senha inválida.");
         }
 
         $data = $results[0];
@@ -81,7 +81,7 @@ class User extends Model {
 
         } else {
 
-            throw new \Exception("Usuário inexistente ou senha inválidusera.");
+            throw new \Exception("Usuário inexistente ou senha inválida.");
 
         }
 
@@ -175,7 +175,7 @@ class User extends Model {
         $this->setData($results[0]);           
     }
 
-
+    //Deleta usuário selecionado
     public function delete()
     {                        
         $sql = new Sql();
@@ -183,6 +183,28 @@ class User extends Model {
         $sql->query("DELETE FROM tb_user WHERE iduser = :iduser", array(
            ":iduser"=>$this->getiduser()
            ));
+    }
+
+    //Joga a mensagem de erro para a sessão
+    public static function setError($msg)
+    {
+        $_SESSION[User::ERROR] = $msg;
+    }
+
+    //Pega a mensagem na sessão
+    public static function getError()
+    {
+        $msg = (isset($_SESSION[User::ERROR]) && $_SESSION[User::ERROR]) ? $_SESSION[User::ERROR] : '';
+
+        User::clearError();
+
+        return $msg;
+    }
+
+    //Limpa a sessão user
+    public static function clearError() 
+    {
+        $_SESSION[User::ERROR] = NULL;
     }
 
 }

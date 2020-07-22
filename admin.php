@@ -22,14 +22,20 @@ $app->get('/admin/login', function() {
         "footer"=>false
     ]);
 
-    $page->setTpl("login");
+    $page->setTpl("login", [
+        'error'=>User::getError()
+    ]);
 
 });
 
 //Submit da pagina de login admin
 $app->post('/admin/login', function(){
 
-    User::login($_POST["login"], $_POST["password"]);
+    try {
+        User::login($_POST["login"], $_POST["password"]);
+    } catch(\Exception $e){
+        User::setError($e->getMessage());
+    }
 
     header("Location: /admin");
     exit;
